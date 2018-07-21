@@ -1,7 +1,7 @@
 name: ${project.name}
 version: ${project.version}
 author: Haileykins
-description: A simple yet advanced AutoBroadcaster
+description: A Simple Yet Advanced AutoBroadcaster
 main: me.haileykins.autobroadcasterplus.AutoBroadcasterPlus
 
 commands:
