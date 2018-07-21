@@ -1,0 +1,17 @@
+name: ${project.name}
+version: ${project.version}
+author: Haileykins
+description: A simple yet advanced AutoBroadcaster
+main: me.haileykins.autobroadcasterplus.AutoBroadcasterPlus
+
+commands:
+  autobroadcast:
+    description: Main Command
+    aliases: abc
+    permission: abc.admin
+    permission-message: "§cYou Don't Have Permission To Use This Command!"
+
+permissions:
+  abc.use:
+    description: Main Permission
+    default: op

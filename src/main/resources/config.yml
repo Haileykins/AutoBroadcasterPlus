@@ -1,0 +1,5 @@
+Prefix: '&7[&bAutoBroadcaster&7]'
+Broadcast-Interval: 10
+Chat-Interval: 0
+
+Files-Reloaded-Msg: '&1Files Reloaded!'
