@@ -1,15 +1,15 @@
 messages:
-  1:
+  test1:
     Message: '&2Welcome to the server!'
     JSONCommand: 'help'
     JSONLink: 'none'
     Display-Text: 'Click Me For Help!'
-  2:
+  test2:
     Message: '&2We2lcome to the server!'
     JSONCommand: 'none'
     JSONLink: 'https://www.google.com'
     Display-Text: 'Click Me To Go To Google!'
-  3:
+  test3:
     Message: 'test'
     JSONCommand: 'none'
     JSONLink: 'none'
