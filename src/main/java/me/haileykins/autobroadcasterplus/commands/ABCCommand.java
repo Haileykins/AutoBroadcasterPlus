@@ -40,12 +40,9 @@ public class ABCCommand implements CommandExecutor {
         if (args[0].equalsIgnoreCase("cast")) {
 
             if (args.length == 2) {
-
-                try {
-
                     ConfigurationSection msgSection = bcmUtils.getBCMs().getConfigurationSection("messages");
 
-                    int group = Integer.parseInt(args[1]);
+                    String group = args[1];
 
                     String message = msgSection.getString(String.valueOf(group) + ".Message");
                     String JSONCommand = msgSection.getString(String.valueOf(group) + ".JSONCommand");
@@ -53,13 +50,6 @@ public class ABCCommand implements CommandExecutor {
                     String displayText = msgSection.getString(String.valueOf(group) + ".Display-Text");
 
                     bcmUtils.handleCastCommand(JSONCommand, JSONLink, displayText, message);
-
-                } catch (NumberFormatException e) {
-
-                    sender.sendMessage("You Must Use Numbers");
-
-                }
-
             }
 
         }
