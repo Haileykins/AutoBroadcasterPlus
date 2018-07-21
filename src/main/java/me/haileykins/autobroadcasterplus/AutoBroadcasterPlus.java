@@ -29,8 +29,4 @@ public class AutoBroadcasterPlus extends JavaPlugin {
         // Start Runnable Task
         abc.broadcast();
     }
-
-    @Override
-    public void onDisable() {
-    }
 }
