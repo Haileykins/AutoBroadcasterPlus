@@ -1,5 +1,6 @@
 package me.haileykins.autobroadcasterplus.commands;
 
+import me.haileykins.autobroadcasterplus.utils.Autobroadcaster;
 import me.haileykins.autobroadcasterplus.utils.BroadcastMsgUtils;
 import me.haileykins.autobroadcasterplus.utils.ConfigUtils;
 import org.bukkit.command.Command;
@@ -11,8 +12,10 @@ public class ABCCommand implements CommandExecutor {
 
     private BroadcastMsgUtils bcmUtils;
     private ConfigUtils cfgUtils;
+    private Autobroadcaster abc;
 
-    public ABCCommand(BroadcastMsgUtils broadcastMsgUtils, ConfigUtils configUtils) {
+    public ABCCommand(Autobroadcaster autobroadcaster, BroadcastMsgUtils broadcastMsgUtils, ConfigUtils configUtils) {
+        abc = autobroadcaster;
         bcmUtils = broadcastMsgUtils;
         cfgUtils = configUtils;
     }
@@ -44,16 +47,27 @@ public class ABCCommand implements CommandExecutor {
 
                     String group = args[1];
 
-                    String message = msgSection.getString(String.valueOf(group) + ".Message");
-                    String JSONCommand = msgSection.getString(String.valueOf(group) + ".JSONCommand");
-                    String JSONLink = msgSection.getString(String.valueOf(group) + ".JSONLink");
-                    String displayText = msgSection.getString(String.valueOf(group) + ".Display-Text");
+                    if (abc.randomSelector.containsValue(group)) {
 
-                    bcmUtils.handleCastCommand(JSONCommand, JSONLink, displayText, message);
+                        String message = msgSection.getString(String.valueOf(group) + ".Message");
+                        String JSONCommand = msgSection.getString(String.valueOf(group) + ".JSONCommand");
+                        String JSONLink = msgSection.getString(String.valueOf(group) + ".JSONLink");
+                        String displayText = msgSection.getString(String.valueOf(group) + ".Display-Text");
+
+                        bcmUtils.handleCastCommand(JSONCommand, JSONLink, displayText, message);
+
+                        return true;
+                    }
+
+                    sender.sendMessage(args[1] + " Doesn't Exist In Broadcast List");
+                    return true;
             }
+
+            sender.sendMessage("You must specify what message to broadcast!");
 
         }
 
+        sender.sendMessage("Unknown Command");
         return true;
 
     }

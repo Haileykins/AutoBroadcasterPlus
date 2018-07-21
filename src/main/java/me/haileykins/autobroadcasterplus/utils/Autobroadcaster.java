@@ -9,6 +9,8 @@ import org.bukkit.Bukkit;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Autobroadcaster {
@@ -18,10 +20,7 @@ public class Autobroadcaster {
     private ConfigUtils cfgUtils;
     private BroadcastMsgUtils bcmUtils;
 
-    private String message;
-    private String JSONCommand;
-    private String JSONLink;
-    private String displayText;
+    public Map<Integer, String> randomSelector = new HashMap<>();
 
     public Autobroadcaster(AutoBroadcasterPlus pl, BroadcastMsgUtils broadcastMsgUtils, ConfigUtils configUtils) {
         plugin = pl;
@@ -33,12 +32,19 @@ public class Autobroadcaster {
         ConfigurationSection msgSection = bcmUtils.getBCMs().getConfigurationSection("messages");
 
         plugin.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, () -> {
-            int group = ThreadLocalRandom.current().nextInt(msgSection.getKeys(false).size()) + 1;
+            int i = 0;
 
-            message = msgSection.getString(String.valueOf(group) + ".Message");
-            JSONCommand = msgSection.getString(String.valueOf(group) + ".JSONCommand");
-            JSONLink = msgSection.getString(String.valueOf(group) + ".JSONLink");
-            displayText = msgSection.getString(String.valueOf(group) + ".Display-Text");
+            for (String s : msgSection.getKeys(false)) {
+                randomSelector.put(i, s);
+                i += 1;
+            }
+
+            String path = randomSelector.get(ThreadLocalRandom.current().nextInt(0, randomSelector.size()));
+
+            String message = msgSection.getString(path + ".Message");
+            String JSONCommand = msgSection.getString(path + ".JSONCommand");
+            String JSONLink = msgSection.getString(path + ".JSONLink");
+            String displayText = msgSection.getString(path + ".Display-Text");
 
             final int interval = cfgUtils.chatInterveral;
 
@@ -84,11 +90,8 @@ public class Autobroadcaster {
                         msg.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(bcmUtils.colorMe(displayText)).create()));
                         player.spigot().sendMessage(msg);
                     }
-
                 }
-
             }
-            
         }, 0L, cfgUtils.broadcastInterval * 20);
     }
 }
