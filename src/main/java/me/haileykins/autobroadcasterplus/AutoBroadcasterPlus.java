@@ -5,10 +5,7 @@ import me.haileykins.autobroadcasterplus.listeners.ActivityListener;
 import me.haileykins.autobroadcasterplus.utils.Autobroadcaster;
 import me.haileykins.autobroadcasterplus.utils.BroadcastMsgUtils;
 import me.haileykins.autobroadcasterplus.utils.ConfigUtils;
-import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import java.util.concurrent.ThreadLocalRandom;
 
 public class AutoBroadcasterPlus extends JavaPlugin {
 
