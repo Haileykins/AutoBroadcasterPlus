@@ -52,8 +52,7 @@ public class Autobroadcaster {
                 chatActivity = 0;
 
                 if ((!JSONCommand.equalsIgnoreCase("none")) && (!JSONLink.equalsIgnoreCase("none"))) {
-                    // TODO: PRIVATE ERROR MESSAGE TO THOSE WITH PERMISSIONS
-                    Bukkit.broadcastMessage("ERROR: You can not have both JSONCommand and JSONLink enabled!");
+                    Bukkit.broadcast("You can not have JSONCommand and JSONLink in the same broadcast!", "abc.admin");
                     return;
                 }
 

@@ -48,8 +48,7 @@ public class BroadcastMsgUtils {
 
     public void handleCastCommand(String JSONCommand, String JSONLink, String displayText, String message) {
         if ((!JSONCommand.equalsIgnoreCase("none")) && (!JSONLink.equalsIgnoreCase("none"))) {
-            // TODO: PRIVATE ERROR MESSAGE TO THOSE WITH PERMISSIONS
-            Bukkit.broadcastMessage("ERROR: You can not have both JSONCommand and JSONLink enabled!");
+            Bukkit.broadcast("You can not have JSONCommand and JSONLink in the same broadcast!", "abc.admin");
             return;
         }
 
