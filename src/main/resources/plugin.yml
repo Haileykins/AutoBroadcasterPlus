@@ -12,6 +12,6 @@ commands:
     permission-message: "§cYou Don't Have Permission To Use This Command!"
 
 permissions:
-  abc.use:
+  abc.admin:
     description: Main Permission
     default: op
