@@ -30,5 +30,6 @@ public class ConfigUtils {
         plugin.reloadConfig();
         loadConfig();
         plugin.getConfig();
+        plugin.saveConfig();
     }
 }
