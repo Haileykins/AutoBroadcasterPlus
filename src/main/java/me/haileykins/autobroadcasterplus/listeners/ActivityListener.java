@@ -16,6 +16,6 @@ public class ActivityListener implements Listener {
 
     @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent event) {
-        abc.chatActivity += 1;
+        abc.chatActivity++;
     }
 }
