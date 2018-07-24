@@ -13,13 +13,14 @@ public class ConfigUtils {
 
     long broadcastInterval;
     int chatInterveral;
+    String cantHaveBoth;
     public String prefix;
     public String filesReloaded;
     public String specifyBC;
     public String unknownCommand;
     public String msgDoesntExist;
-    public String mustBeNumber;
-    public String cantHaveBoth;
+    public String kill;
+    public String reboot;
 
     public void loadConfig() {
         plugin.saveDefaultConfig();
@@ -31,8 +32,9 @@ public class ConfigUtils {
         specifyBC = config.getString("Specify-Broadcast-Msg");
         unknownCommand = config.getString("Unknown-Command");
         msgDoesntExist = config.getString("Message-Does-Not-Exist");
-        mustBeNumber = config.getString("Must-Be-Number");
         cantHaveBoth = config.getString("No-JSONCommand-And-JSONLink");
+        kill = config.getString("Kill-Message");
+        reboot = config.getString("Reboot-Message");
         plugin.saveConfig();
     }
 
@@ -41,10 +43,5 @@ public class ConfigUtils {
         loadConfig();
         plugin.getConfig();
         plugin.saveConfig();
-    }
-
-    public void setTime(String time) {
-        FileConfiguration config = plugin.getConfig();
-        config.set("Broadcast-Interval", time);
     }
 }

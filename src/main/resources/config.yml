@@ -1,4 +1,4 @@
-Prefix: '&7[&bAutoBroadcaster&7]'
+Prefix: '&7[&bAutoBroadcaster&7]&f'
 Broadcast-Interval: 10
 Chat-Interval: 0
 
@@ -6,5 +6,6 @@ Files-Reloaded-Msg: '&1Files Reloaded!'
 Specify-Broadcast-Msg: '&cYou Must Specify a Message To Broadcast'
 Unknown-Command: '&cUnknown Command!'
 Message-Does-Not-Exist: "&4{msg} &cdoesn't exist in broadcast list!"
-Must-Be-Number: '&cThe Broadcast Interval MUST Be A Number!'
-No-JSONCommand-And-JSONLink: 'You can NOT have JSONCommand and JSONLink enabled at the same time!'
+No-JSONCommand-And-JSONLink: '&4ERROR &c>>> &7You can &4NOT &7have JSONCommand and JSONLink enabled at the same time!'
+Kill-Message: '&4Broadcaster Killed'
+Reboot-Message: '&2Broadcaster Rebooted'
