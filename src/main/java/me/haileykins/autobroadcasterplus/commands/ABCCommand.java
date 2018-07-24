@@ -71,15 +71,17 @@ public class ABCCommand implements CommandExecutor {
                         return true;
                     }
 
-                    sender.sendMessage(args[1] + " Doesn't Exist In Broadcast List");
+                    sender.sendMessage(bcmUtils.colorMe(cfgUtils.prefix + " " + cfgUtils.msgDoesntExist
+                            .replace("{msg}", args[1])));
                     return true;
             }
 
-            sender.sendMessage("You must specify what message to broadcast!");
+            sender.sendMessage(bcmUtils.colorMe(cfgUtils.prefix + " " + cfgUtils.specifyBC));
+            return true;
 
         }
 
-        sender.sendMessage("Unknown Command");
+        sender.sendMessage(bcmUtils.colorMe(cfgUtils.prefix + " " + cfgUtils.unknownCommand));
         return true;
 
     }

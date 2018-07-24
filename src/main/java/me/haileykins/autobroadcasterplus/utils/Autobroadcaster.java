@@ -52,7 +52,7 @@ public class Autobroadcaster {
                 chatActivity = 0;
 
                 if ((!JSONCommand.equalsIgnoreCase("none")) && (!JSONLink.equalsIgnoreCase("none"))) {
-                    Bukkit.broadcast("You can not have JSONCommand and JSONLink in the same broadcast!", "abc.admin");
+                    Bukkit.broadcast(bcmUtils.colorMe(cfgUtils.prefix + " " + cfgUtils.cantHaveBoth), "abc.admin");
                     return;
                 }
 

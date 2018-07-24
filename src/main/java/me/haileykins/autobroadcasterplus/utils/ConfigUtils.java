@@ -15,6 +15,11 @@ public class ConfigUtils {
     int chatInterveral;
     public String prefix;
     public String filesReloaded;
+    public String specifyBC;
+    public String unknownCommand;
+    public String msgDoesntExist;
+    public String mustBeNumber;
+    public String cantHaveBoth;
 
     public void loadConfig() {
         plugin.saveDefaultConfig();
@@ -23,6 +28,11 @@ public class ConfigUtils {
         broadcastInterval = config.getLong("Broadcast-Interval");
         chatInterveral = config.getInt("Chat-Interval");
         filesReloaded = config.getString("Files-Reloaded-Msg");
+        specifyBC = config.getString("Specify-Broadcast-Msg");
+        unknownCommand = config.getString("Unknown-Command");
+        msgDoesntExist = config.getString("Message-Does-Not-Exist");
+        mustBeNumber = config.getString("Must-Be-Number");
+        cantHaveBoth = config.getString("No-JSONCommand-And-JSONLink");
         plugin.saveConfig();
     }
 
