@@ -1,16 +1,16 @@
 messages:
-  test1:
+  welcome:
     Message: '&2Welcome to the server!'
     JSONCommand: 'help'
     JSONLink: 'none'
     Display-Text: 'Click Me For Help!'
-  test2:
-    Message: '&2We2lcome to the server!'
+  google:
+    Message: '&2Lets Google It!'
     JSONCommand: 'none'
     JSONLink: 'https://www.google.com'
     Display-Text: 'Click Me To Go To Google!'
-  test3:
-    Message: 'test'
+  hovering:
+    Message: 'Awesome Text With Hovering Text!'
     JSONCommand: 'none'
     JSONLink: 'none'
-    Display-Text: "I'm Just A Nice Hovering Message"
+    Display-Text: "I'm Awesome hovering Text!"
