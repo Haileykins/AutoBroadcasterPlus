@@ -21,6 +21,7 @@ public class Autobroadcaster {
     private BroadcastMsgUtils bcmUtils;
 
     public Map<Integer, String> randomSelector = new HashMap<>();
+    public int taskID;
 
     public Autobroadcaster(AutoBroadcasterPlus pl, BroadcastMsgUtils broadcastMsgUtils, ConfigUtils configUtils) {
         plugin = pl;
@@ -31,7 +32,7 @@ public class Autobroadcaster {
     public void broadcast() {
         ConfigurationSection msgSection = bcmUtils.getBCMs().getConfigurationSection("messages");
 
-        plugin.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, () -> {
+        taskID = plugin.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, () -> {
             int i = 0;
 
             for (String s : msgSection.getKeys(false)) {

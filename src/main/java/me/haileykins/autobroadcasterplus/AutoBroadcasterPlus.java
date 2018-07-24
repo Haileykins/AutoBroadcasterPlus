@@ -12,8 +12,8 @@ public class AutoBroadcasterPlus extends JavaPlugin {
     @Override
     public void onEnable() {
         // Create Instances
-        ConfigUtils cfgUtils = new ConfigUtils(this);
         BroadcastMsgUtils bcmUtils = new BroadcastMsgUtils(this);
+        ConfigUtils cfgUtils = new ConfigUtils(this);
         Autobroadcaster abc = new Autobroadcaster(this, bcmUtils, cfgUtils);
 
         // Load Files
@@ -24,7 +24,7 @@ public class AutoBroadcasterPlus extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new ActivityListener(abc), this);
 
         // Register Commands
-        getCommand("autobroadcast").setExecutor(new ABCCommand(abc, bcmUtils, cfgUtils));
+        getCommand("autobroadcast").setExecutor(new ABCCommand(abc, bcmUtils, cfgUtils, this));
 
         // Start Runnable Task
         abc.broadcast();
