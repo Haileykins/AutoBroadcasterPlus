@@ -15,6 +15,7 @@ import org.bukkit.entity.Player;
 import java.io.File;
 import java.io.IOException;
 
+@SuppressWarnings("ResultOfMethodCallIgnored")
 public class BroadcastMsgUtils {
 
     private AutoBroadcasterPlus plugin;
