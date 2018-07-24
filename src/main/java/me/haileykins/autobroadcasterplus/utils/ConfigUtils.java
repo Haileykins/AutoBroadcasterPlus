@@ -32,4 +32,9 @@ public class ConfigUtils {
         plugin.getConfig();
         plugin.saveConfig();
     }
+
+    public void setTime(String time) {
+        FileConfiguration config = plugin.getConfig();
+        config.set("Broadcast-Interval", time);
+    }
 }

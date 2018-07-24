@@ -40,6 +40,18 @@ public class ABCCommand implements CommandExecutor {
 
         }
 
+        if (args[0].equalsIgnoreCase("settime")) {
+            if (args.length == 2) {
+                try {
+                    cfgUtils.setTime(args[1]);
+                    return true;
+                } catch (NumberFormatException e) {
+                    sender.sendMessage(bcmUtils.colorMe(cfgUtils.prefix + " " + cfgUtils.mustBeNumber));
+                    return true;
+                }
+            }
+        }
+
         if (args[0].equalsIgnoreCase("cast")) {
 
             if (args.length == 2) {
