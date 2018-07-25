@@ -15,6 +15,7 @@ public class ConfigUtils {
     int chatInterveral;
     String cantHaveBoth;
     public String prefix;
+    public boolean updaterEnabled;
     public String filesReloaded;
     public String specifyBC;
     public String unknownCommand;
@@ -29,6 +30,7 @@ public class ConfigUtils {
         broadcastInterval = config.getLong("Broadcast-Interval");
         chatInterveral = config.getInt("Chat-Interval");
         filesReloaded = config.getString("Files-Reloaded-Msg");
+        updaterEnabled = config.getBoolean("Enable-Update-Notifications");
         specifyBC = config.getString("Specify-Broadcast-Msg");
         unknownCommand = config.getString("Unknown-Command");
         msgDoesntExist = config.getString("Message-Does-Not-Exist");

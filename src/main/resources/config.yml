@@ -1,6 +1,7 @@
 Prefix: '&7[&bAutoBroadcaster&7]&f'
 Broadcast-Interval: 10
 Chat-Interval: 0
+Enable-Update-Notifications: true
 
 Files-Reloaded-Msg: '&1Files Reloaded!'
 Specify-Broadcast-Msg: '&cYou Must Specify a Message To Broadcast'
