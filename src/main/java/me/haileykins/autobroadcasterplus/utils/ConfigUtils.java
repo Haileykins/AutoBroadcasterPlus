@@ -22,6 +22,8 @@ public class ConfigUtils {
     public String msgDoesntExist;
     public String kill;
     public String reboot;
+    public String pluginOutOfDate;
+    public String pluginUpToDate;
 
     public void loadConfig() {
         plugin.saveDefaultConfig();
@@ -37,6 +39,9 @@ public class ConfigUtils {
         cantHaveBoth = config.getString("No-JSONCommand-And-JSONLink");
         kill = config.getString("Kill-Message");
         reboot = config.getString("Reboot-Message");
+        pluginOutOfDate = config.getString("Plugin-Out-Of-Date");
+        pluginUpToDate = config.getString("Plugin-Up-To-Date");
+
         plugin.saveConfig();
     }
 

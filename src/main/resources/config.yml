@@ -10,3 +10,5 @@ Message-Does-Not-Exist: "&4{msg} &cdoesn't exist in broadcast list!"
 No-JSONCommand-And-JSONLink: '&4ERROR &c>>> &7You can &4NOT &7have JSONCommand and JSONLink enabled at the same time!'
 Kill-Message: '&4Broadcaster Killed'
 Reboot-Message: '&2Broadcaster Rebooted'
+Plugin-Out-Of-Date: 'Your Version is Out Of Date'
+Plugin-Up-To-Date: 'Your Version is Up To Date'

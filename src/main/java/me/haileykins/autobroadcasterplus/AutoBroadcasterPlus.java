@@ -23,7 +23,7 @@ public class AutoBroadcasterPlus extends JavaPlugin {
 
         // Register Listeners
         getServer().getPluginManager().registerEvents(new ActivityListener(abc), this);
-        getServer().getPluginManager().registerEvents(new UpdateListener(this, cfgUtils), this);
+        getServer().getPluginManager().registerEvents(new UpdateListener(this, cfgUtils, bcmUtils), this);
 
         // Register Commands
         getCommand("autobroadcast").setExecutor(new ABCCommand(abc, bcmUtils, cfgUtils, this));
