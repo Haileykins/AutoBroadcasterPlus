@@ -40,7 +40,6 @@ public class ConfigUtils {
         kill = config.getString("Kill-Message");
         reboot = config.getString("Reboot-Message");
         pluginOutOfDate = config.getString("Plugin-Out-Of-Date");
-        pluginUpToDate = config.getString("Plugin-Up-To-Date");
 
         plugin.saveConfig();
     }

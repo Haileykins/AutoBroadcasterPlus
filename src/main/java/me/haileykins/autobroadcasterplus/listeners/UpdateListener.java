@@ -44,8 +44,6 @@ public class UpdateListener implements Listener {
 
                 if (!plugin.getDescription().getVersion().equalsIgnoreCase(version)) {
                    player.sendMessage(bcmUtils.colorMe(cfgUtils.prefix + " " + cfgUtils.pluginOutOfDate));
-                } else {
-                    player.sendMessage(bcmUtils.colorMe(cfgUtils.prefix + " " + cfgUtils.pluginUpToDate));
                 }
             } catch (IOException e) {
                 e.printStackTrace();
