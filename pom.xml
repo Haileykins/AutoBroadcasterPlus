@@ -6,7 +6,7 @@
 
     <groupId>me.haileykins.autobroadcasterplus</groupId>
     <artifactId>AutoBroadcasterPlus</artifactId>
-    <version>1.0</version>
+    <version>1.2</version>
 
     <build>
         <plugins>
