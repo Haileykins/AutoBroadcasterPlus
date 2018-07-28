@@ -37,17 +37,19 @@ public class UpdateListener implements Listener {
 
         Player player = event.getPlayer();
 
-        Bukkit.getScheduler().runTaskAsynchronously(plugin, () -> {
-            try {
-                HttpsURLConnection connection = (HttpsURLConnection) new URL(resourceURL).openConnection();
-                String version = new BufferedReader(new InputStreamReader(connection.getInputStream())).readLine();
+        if (player.hasPermission("abc.admin")) {
+            Bukkit.getScheduler().runTaskAsynchronously(plugin, () -> {
+                try {
+                    HttpsURLConnection connection = (HttpsURLConnection) new URL(resourceURL).openConnection();
+                    String version = new BufferedReader(new InputStreamReader(connection.getInputStream())).readLine();
 
-                if (!plugin.getDescription().getVersion().equalsIgnoreCase(version)) {
-                   player.sendMessage(bcmUtils.colorMe(cfgUtils.prefix + " " + cfgUtils.pluginOutOfDate));
+                    if (!plugin.getDescription().getVersion().equalsIgnoreCase(version)) {
+                        player.sendMessage(bcmUtils.colorMe(cfgUtils.prefix + " " + cfgUtils.pluginOutOfDate));
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        });
+            });
+        }
     }
 }
