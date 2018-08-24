@@ -23,7 +23,6 @@ public class ConfigUtils {
     public String kill;
     public String reboot;
     public String pluginOutOfDate;
-    public String pluginUpToDate;
 
     public void loadConfig() {
         plugin.saveDefaultConfig();

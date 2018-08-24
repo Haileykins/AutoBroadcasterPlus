@@ -1,6 +1,6 @@
 package me.haileykins.autobroadcasterplus;
 
-import me.haileykins.autobroadcasterplus.commands.ABCCommand;
+import me.haileykins.autobroadcasterplus.commands.CommandManager;
 import me.haileykins.autobroadcasterplus.listeners.ActivityListener;
 import me.haileykins.autobroadcasterplus.listeners.UpdateListener;
 import me.haileykins.autobroadcasterplus.utils.Autobroadcaster;
@@ -31,7 +31,7 @@ public class AutoBroadcasterPlus extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new UpdateListener(this, cfgUtils, bcmUtils), this);
 
         // Register Commands
-        getCommand("autobroadcast").setExecutor(new ABCCommand(abc, bcmUtils, cfgUtils, this));
+        getCommand("autobroadcast").setExecutor(new CommandManager(cfgUtils, bcmUtils, this, abc));
 
         // Start Runnable Task
         abc.broadcast();
