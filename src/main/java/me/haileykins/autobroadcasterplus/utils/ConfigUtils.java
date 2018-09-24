@@ -3,6 +3,8 @@ package me.haileykins.autobroadcasterplus.utils;
 import me.haileykins.autobroadcasterplus.AutoBroadcasterPlus;
 import org.bukkit.configuration.file.FileConfiguration;
 
+import java.io.File;
+
 public class ConfigUtils {
 
     private AutoBroadcasterPlus plugin;
@@ -25,7 +27,12 @@ public class ConfigUtils {
     public String pluginOutOfDate;
 
     public void loadConfig() {
-        plugin.saveDefaultConfig();
+        File file = new File(plugin.getDataFolder(), "config.yml");
+
+        if (file.exists()) {
+            plugin.saveDefaultConfig();
+        }
+
         FileConfiguration config = plugin.getConfig();
         prefix = config.getString("Prefix");
         broadcastInterval = config.getLong("Broadcast-Interval");
