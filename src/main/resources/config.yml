@@ -1,9 +1,25 @@
-Prefix: '&7[&bAutoBroadcaster&7]&f'
+# ---------------------------------------------------------------------------------------
+# Broadcast-Interval: How Many Seconds Between Broadcasts
+# ---------------------------------------------------------------------------------------
+# Broadcast-Type: The Type Of Sorting For The Broadcast Messages
+# 0 - Random Sort
+# 1 - Descending Sort (Top Of File To Bottom Of File)
+# 2 - Ascending Sort (Bottom Of File To Top Of File)
+# ---------------------------------------------------------------------------------------
+# Chat-Interval: The Chat Interval is how many messages must be sent before the
+# plugin broadcasts again. If your Broadcast-Interval is every 5 seconds, and
+# your Chat-Interval is 5, this means the plugin wont broadcast again in 5
+# seconds UNLESS 5 messages were sent by players (can be any combination of players)
+# If it fails to broadcast due to the chat interval, it will wait 5 more seconds, and
+# check if it has seen five messages or not, once it has seen 5 messages and the next
+# broadcast cycle comes, it will broadcast the message.
+# ---------------------------------------------------------------------------------------
 Broadcast-Interval: 10
 Broadcast-Type: 0
 Chat-Interval: 0
 Enable-Update-Notifications: true
 
+Prefix: '&7[&bAutoBroadcaster&7]&f'
 Files-Reloaded-Msg: '&1Files Reloaded!'
 Specify-Broadcast-Msg: '&cYou Must Specify a Message To Broadcast'
 Unknown-Command: '&cUnknown Command!'
