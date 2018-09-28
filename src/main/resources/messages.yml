@@ -14,3 +14,8 @@ messages:
     JSONCommand: 'none'
     JSONLink: 'none'
     Display-Text: "I'm Awesome hovering Text!"
+  nonhovering:
+    Message: 'I Am A Plain Old Broadcast Message'
+    JSONCommand: 'none'
+    JSONLink: 'none'
+    Display-Text: 'none'
