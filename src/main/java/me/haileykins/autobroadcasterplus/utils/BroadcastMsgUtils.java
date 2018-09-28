@@ -38,10 +38,12 @@ public class BroadcastMsgUtils {
     }
 
     public void loadConfig() {
-        plugin.saveResource("messages.yml", false);
-
         File file = new File(plugin.getDataFolder(), "messages.yml");
         messages = new YamlConfiguration();
+
+        if (!file.exists()) {
+            plugin.saveResource("messages.yml", false);
+        }
 
         try {
             messages.load(file);
