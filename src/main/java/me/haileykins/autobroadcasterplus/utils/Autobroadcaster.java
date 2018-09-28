@@ -53,44 +53,42 @@ public class Autobroadcaster {
                 return;
             }
 
-                if ((!JSONCommand.equalsIgnoreCase("none")) && (!JSONLink.equalsIgnoreCase("none"))) {
-                    Bukkit.broadcast(bcmUtils.colorMe(cfgUtils.prefix + " " + cfgUtils.cantHaveBoth), "abc.admin");
-                    return;
-                }
+            chatActivity = 0;
 
-                if (!JSONCommand.equalsIgnoreCase("none")) {
-                    for (Player player : Bukkit.getOnlinePlayers()) {
-                        TextComponent msg = new TextComponent(bcmUtils.colorMe(message));
-                        if (displayText.equalsIgnoreCase("none")) {
-                            return;
-                        }
-                        msg.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(bcmUtils.colorMe(displayText)).create()));
-                        msg.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/" + JSONCommand));
-                        player.spigot().sendMessage(msg);
-                    }
-                }
+            if ((!JSONCommand.equalsIgnoreCase("none")) && (!JSONLink.equalsIgnoreCase("none"))) {
+                Bukkit.broadcast(bcmUtils.colorMe(cfgUtils.prefix + " " + cfgUtils.cantHaveBoth), "abc.admin");
+                return;
+            }
 
-                if (!JSONLink.equalsIgnoreCase("none")) {
-                    for (Player player : Bukkit.getOnlinePlayers()) {
-                        TextComponent msg = new TextComponent(bcmUtils.colorMe(message));
-                        if (displayText.equalsIgnoreCase("none")) {
-                            return;
-                        }
+            if (!JSONCommand.equalsIgnoreCase("none")) {
+                for (Player player : Bukkit.getOnlinePlayers()) {
+                    TextComponent msg = new TextComponent(bcmUtils.colorMe(message));
+                    if (!displayText.equalsIgnoreCase("none")) {
                         msg.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(bcmUtils.colorMe(displayText)).create()));
-                        msg.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, JSONLink));
-                        player.spigot().sendMessage(msg);
                     }
+                    msg.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/" + JSONCommand));
+                    player.spigot().sendMessage(msg);
                 }
+            }
 
-                if ((JSONCommand.equalsIgnoreCase("none")) && (JSONLink.equalsIgnoreCase("none"))) {
-                    for (Player player : Bukkit.getOnlinePlayers()) {
-                        TextComponent msg = new TextComponent(bcmUtils.colorMe(message));
-                        if (displayText.equalsIgnoreCase("none")) {
-                            return;
-                        }
+            if (!JSONLink.equalsIgnoreCase("none")) {
+                for (Player player : Bukkit.getOnlinePlayers()) {
+                    TextComponent msg = new TextComponent(bcmUtils.colorMe(message));
+                    if (!displayText.equalsIgnoreCase("none")) {
                         msg.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(bcmUtils.colorMe(displayText)).create()));
-                        player.spigot().sendMessage(msg);
                     }
+                    msg.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, JSONLink));
+                    player.spigot().sendMessage(msg);
+                }
+            }
+
+            if ((JSONCommand.equalsIgnoreCase("none")) && (JSONLink.equalsIgnoreCase("none"))) {
+                for (Player player : Bukkit.getOnlinePlayers()) {
+                    TextComponent msg = new TextComponent(bcmUtils.colorMe(message));
+                    if (!displayText.equalsIgnoreCase("none")) {
+                        msg.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(bcmUtils.colorMe(displayText)).create()));
+                    }
+                    player.spigot().sendMessage(msg);
                 }
             }
         }, 0L, cfgUtils.broadcastInterval * 20);
