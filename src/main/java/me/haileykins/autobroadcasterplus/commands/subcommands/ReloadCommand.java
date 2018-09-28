@@ -19,10 +19,8 @@ public class ReloadCommand extends CommandBase {
 
     @Override
     public void onCommand(CommandSender sender, List<String> args) {
-        if (args.size() == 1) {
-            cfgUtils.reloadConfig();
-            sender.sendMessage(bcmUtils.colorMe(cfgUtils.prefix + " " + cfgUtils.filesReloaded));
-        }
+        cfgUtils.reloadConfig();
+        sender.sendMessage(bcmUtils.colorMe(cfgUtils.prefix + " " + cfgUtils.filesReloaded));
     }
 
     @Override
