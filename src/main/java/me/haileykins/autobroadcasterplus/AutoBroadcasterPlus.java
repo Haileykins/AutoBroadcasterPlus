@@ -18,8 +18,8 @@ public class AutoBroadcasterPlus extends JavaPlugin {
         Metrics metrics = new Metrics(this);
 
         // Create Instances
-        BroadcastMsgUtils bcmUtils = new BroadcastMsgUtils(this);
         ConfigUtils cfgUtils = new ConfigUtils(this);
+        BroadcastMsgUtils bcmUtils = new BroadcastMsgUtils(this, cfgUtils);
         Autobroadcaster abc = new Autobroadcaster(this, bcmUtils, cfgUtils);
 
         // Load Files

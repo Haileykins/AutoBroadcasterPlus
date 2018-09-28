@@ -14,16 +14,23 @@ import org.bukkit.entity.Player;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.*;
+import java.util.concurrent.ThreadLocalRandom;
 
 @SuppressWarnings("ResultOfMethodCallIgnored")
 public class BroadcastMsgUtils {
 
     private AutoBroadcasterPlus plugin;
+    private ConfigUtils cfgUtils;
 
     private FileConfiguration messages;
 
-    public BroadcastMsgUtils(AutoBroadcasterPlus pl) {
+    private int descending = 0;
+    private int ascending = 0;
+
+    public BroadcastMsgUtils(AutoBroadcasterPlus pl, ConfigUtils configUtils) {
         plugin = pl;
+        cfgUtils = configUtils;
     }
 
     public String colorMe(String message) {
@@ -87,5 +94,45 @@ public class BroadcastMsgUtils {
             }
 
         }
+    }
+
+    String broadcastType(Map<Integer, String> randomSelector, int i) {
+        String path = null;
+        int type = cfgUtils.broadcastType;
+
+        if (type == 0) {
+            path = randomSelector.get(ThreadLocalRandom.current().nextInt(0, randomSelector.size()));
+        }
+
+        if (type == 1) {
+            if (descending == i - 1) {
+                descending = 0;
+            } else {
+                descending += 1;
+            }
+
+            System.out.println("DESCENDING SORT: " + descending);
+            System.out.println("MESSAGE TO SEND: " + randomSelector.get(descending));
+
+            path = randomSelector.get(descending);
+
+        }
+
+        if (type == 2) {
+            if (ascending == 0) {
+                ascending = i - 1;
+            } else {
+                ascending -= 1;
+            }
+
+            System.out.println("ASCENDING SORT: " + ascending);
+            System.out.println("MESSAGE TO SEND: " + randomSelector.get(ascending));
+
+            path = randomSelector.get(ascending);
+
+
+        }
+
+        return path;
     }
 }

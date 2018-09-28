@@ -14,6 +14,7 @@ public class ConfigUtils {
     }
 
     long broadcastInterval;
+    int broadcastType;
     int chatInterveral;
     String cantHaveBoth;
     public String prefix;
@@ -36,6 +37,7 @@ public class ConfigUtils {
         FileConfiguration config = plugin.getConfig();
         prefix = config.getString("Prefix");
         broadcastInterval = config.getLong("Broadcast-Interval");
+        broadcastType = config.getInt("Broadcast-Type");
         chatInterveral = config.getInt("Chat-Interval");
         filesReloaded = config.getString("Files-Reloaded-Msg");
         updaterEnabled = config.getBoolean("Enable-Update-Notifications");

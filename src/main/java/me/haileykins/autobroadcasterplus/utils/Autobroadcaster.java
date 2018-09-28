@@ -11,7 +11,6 @@ import org.bukkit.entity.Player;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class Autobroadcaster {
 
@@ -37,10 +36,11 @@ public class Autobroadcaster {
 
             for (String s : msgSection.getKeys(false)) {
                 randomSelector.put(i, s);
+
                 i += 1;
             }
 
-            String path = randomSelector.get(ThreadLocalRandom.current().nextInt(0, randomSelector.size()));
+            String path = bcmUtils.broadcastType(randomSelector, i);
 
             String message = msgSection.getString(path + ".Message");
             String JSONCommand = msgSection.getString(path + ".JSONCommand");

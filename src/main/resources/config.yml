@@ -1,5 +1,6 @@
 Prefix: '&7[&bAutoBroadcaster&7]&f'
 Broadcast-Interval: 10
+Broadcast-Type: 0
 Chat-Interval: 0
 Enable-Update-Notifications: true
 
