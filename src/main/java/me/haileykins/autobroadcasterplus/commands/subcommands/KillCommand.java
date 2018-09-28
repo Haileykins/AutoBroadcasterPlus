@@ -25,7 +25,8 @@ public class KillCommand extends CommandBase {
 
     @Override
     public void onCommand(CommandSender sender, List<String> args) {
-        if (plugin.getServer().getScheduler().isQueued(abc.taskID) || plugin.getServer().getScheduler().isCurrentlyRunning(abc.taskID)) {
+        if (plugin.getServer().getScheduler().isQueued(abc.taskID) || plugin.getServer().getScheduler()
+                .isCurrentlyRunning(abc.taskID)) {
             plugin.getServer().getScheduler().cancelTasks(plugin);
             sender.sendMessage(bcmUtils.colorMe(cfgUtils.prefix + " " + cfgUtils.kill));
         }

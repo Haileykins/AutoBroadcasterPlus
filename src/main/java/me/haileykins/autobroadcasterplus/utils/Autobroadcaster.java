@@ -49,8 +49,9 @@ public class Autobroadcaster {
 
             final int interval = cfgUtils.chatInterveral;
 
-            if (chatActivity >= interval) {
-                chatActivity = 0;
+            if (!(chatActivity >= interval)) {
+                return;
+            }
 
                 if ((!JSONCommand.equalsIgnoreCase("none")) && (!JSONLink.equalsIgnoreCase("none"))) {
                     Bukkit.broadcast(bcmUtils.colorMe(cfgUtils.prefix + " " + cfgUtils.cantHaveBoth), "abc.admin");

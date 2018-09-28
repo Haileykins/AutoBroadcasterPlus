@@ -26,7 +26,9 @@ public class RebootCommand extends CommandBase {
 
     @Override
     public void onCommand(CommandSender sender, List<String> args) {
-        if (!plugin.getServer().getScheduler().isQueued(abc.taskID) || !plugin.getServer().getScheduler().isCurrentlyRunning(abc.taskID)) {
+        if (!plugin.getServer().getScheduler().isQueued(abc.taskID) ||
+                !plugin.getServer().getScheduler().isCurrentlyRunning(abc.taskID)) {
+
             abc.broadcast();
             sender.sendMessage(bcmUtils.colorMe(cfgUtils.prefix + " " + cfgUtils.reboot));
         }

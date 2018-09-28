@@ -23,31 +23,27 @@ public class CastCommand extends CommandBase {
 
     @Override
     public void onCommand(CommandSender sender, List<String> args) {
-        if (args.size() != 2) {
 
+        if (args.size() != 2) {
             sender.sendMessage(bcmUtils.colorMe(cfgUtils.prefix + " " + cfgUtils.specifyBC));
             return;
-
         }
 
         ConfigurationSection msgSection = bcmUtils.getBCMs().getConfigurationSection("messages");
-
         String group = args.get(1);
 
-        if (abc.randomSelector.containsValue(group)) {
-
-            String message = msgSection.getString(String.valueOf(group) + ".Message");
-            String JSONCommand = msgSection.getString(String.valueOf(group) + ".JSONCommand");
-            String JSONLink = msgSection.getString(String.valueOf(group) + ".JSONLink");
-            String displayText = msgSection.getString(String.valueOf(group) + ".Display-Text");
-
-            bcmUtils.handleCastCommand(JSONCommand, JSONLink, displayText, message);
-
+        if (!abc.randomSelector.containsValue(group)) {
+            sender.sendMessage(bcmUtils.colorMe(cfgUtils.prefix + " " +
+                    cfgUtils.msgDoesntExist.replace("{msg}", args.get(1))));
             return;
         }
 
-        sender.sendMessage(bcmUtils.colorMe(cfgUtils.prefix + " " + cfgUtils.msgDoesntExist
-                .replace("{msg}", args.get(1))));;
+        String message = msgSection.getString(String.valueOf(group) + ".Message");
+        String JSONCommand = msgSection.getString(String.valueOf(group) + ".JSONCommand");
+        String JSONLink = msgSection.getString(String.valueOf(group) + ".JSONLink");
+        String displayText = msgSection.getString(String.valueOf(group) + ".Display-Text");
+
+        bcmUtils.handleCastCommand(JSONCommand, JSONLink, displayText, message);
 
     }
 
