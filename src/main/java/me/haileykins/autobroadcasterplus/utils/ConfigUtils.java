@@ -30,9 +30,7 @@ public class ConfigUtils {
     public void loadConfig() {
         File file = new File(plugin.getDataFolder(), "config.yml");
 
-        if (file.exists()) {
-            plugin.saveDefaultConfig();
-        }
+        plugin.saveDefaultConfig();
 
         FileConfiguration config = plugin.getConfig();
         prefix = config.getString("Prefix");
