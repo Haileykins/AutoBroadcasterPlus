@@ -14,9 +14,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Class for handling all sub-commands the plugin can read
- */
 public class CommandManager implements CommandExecutor {
 
     private ConfigUtils cfgUtils;
@@ -24,11 +21,6 @@ public class CommandManager implements CommandExecutor {
 
     private Set<CommandBase> commands;
 
-    /**
-     * Constructor For Managing All Sub Commands
-     * @param configUtils Instance of configUtils class
-     * @param broadcastMsgUtils Instance of broadcastMessageUtils class
-     */
     public CommandManager(ConfigUtils configUtils, BroadcastMsgUtils broadcastMsgUtils, AutoBroadcasterPlus pl, Autobroadcaster abc) {
 
         cfgUtils = configUtils;
@@ -42,14 +34,6 @@ public class CommandManager implements CommandExecutor {
         commands.add(new CastCommand(bcmUtils, abc, cfgUtils));
     }
 
-    /**
-     * Called when the plugin detects that /pi was run, also starts checking the sub-command
-     * @param sender The CommandSender who executed the command
-     * @param cmd The command ran, /pi
-     * @param label Unused in PersonalInfo
-     * @param args The arguments given for the command
-     * @return The True or False value of the successful execution of the command
-     */
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 
