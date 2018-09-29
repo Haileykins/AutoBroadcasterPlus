@@ -113,9 +113,6 @@ public class BroadcastMsgUtils {
                 descending += 1;
             }
 
-            System.out.println("DESCENDING SORT: " + descending);
-            System.out.println("MESSAGE TO SEND: " + randomSelector.get(descending));
-
             path = randomSelector.get(descending);
 
         }
@@ -126,9 +123,6 @@ public class BroadcastMsgUtils {
             } else {
                 ascending -= 1;
             }
-
-            System.out.println("ASCENDING SORT: " + ascending);
-            System.out.println("MESSAGE TO SEND: " + randomSelector.get(ascending));
 
             path = randomSelector.get(ascending);
 
